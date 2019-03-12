@@ -9,3 +9,4 @@ Next possibilites are implemented:
 2) Subtraction of entered number of seconds from set/current time
 3) Calculation difference between two time moments within one day
 4) Add entered number of seconds to set/current time
+5) Summating of two set times

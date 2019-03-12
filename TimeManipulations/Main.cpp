@@ -1,13 +1,7 @@
 # include <iostream>
 # include <string>
 # include <math.h>
-# include <ctime>
-# include <fstream>
-# include <iomanip>
-# include <cstdio>
-# include <conio.h>
-# include <time.h>
-# include <stdio.h>
+
 
 #include "Time.h"
 
@@ -35,6 +29,7 @@ menu_start:
 		<< "Press '2' to subtract time from current time" << endl 
 		<< "Press '3' to calculate the difference between two time moments wihin one day" << endl
 		<< "Press '4' to add time to current time" << endl
+		<< "Press '5' to sum two set times" << endl
 		<<"Press '0' to exit"<<endl << endl;
 	cin >> menu;
 
@@ -128,6 +123,25 @@ menu_start:
 			goto menu_start;
 			break;
 		}
+		case 5:
+		{	cout << "----------------------" << endl;
+		cout << "1st addend setting: " << endl;
+		cout << "----------------------" << endl;
+		t1.SetTime();
+		cout << "----------------------" << endl;
+		cout << "2nd addend setting: " << endl;
+		cout << "----------------------" << endl;
+		t2.SetTime();
+
+
+		sum = abs(Time::ConvertTimeToSec(t2) + Time::ConvertTimeToSec(t1));
+		t2 = Time::ConvertSecToTime(sum);
+
+		cout << "Resulting time: " << t2.GetHour() << " hour(s) " << t2.GetMin() << " minute(s) " << t2.GetSec() << " second(s) ";
+		goto menu_start;
+		break;
+		}
+
 		case 0:
 		{
 			break;

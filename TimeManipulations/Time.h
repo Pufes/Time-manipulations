@@ -4,9 +4,6 @@
 # include <string>
 # include <math.h>
 # include <ctime>
-# include <fstream>
-# include <iomanip>
-# include <cstdio>
 
 using namespace std;
 
