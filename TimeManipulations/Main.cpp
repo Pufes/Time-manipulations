@@ -5,15 +5,11 @@
 # include <fstream>
 # include <iomanip>
 # include <cstdio>
-#include <conio.h>
-#include <time.h>
-#include <stdio.h>
+# include <conio.h>
+# include <time.h>
+# include <stdio.h>
 
 #include "Time.h"
-
-// Время задается в формате час, минута, секунда. Реализовать:
-// 1) вычитание из времени указанного пользователем количества секунд;
-// 2) подсчёт числа секунд между двумя моментами времени, лежащими в пределах одних суток.
 
 using namespace std;
 
