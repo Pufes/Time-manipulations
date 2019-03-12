@@ -22,7 +22,7 @@ int main()
 	setlocale(LC_ALL, "en");
 
 	time_t currentTime;
-	int menu, difference = 0, currentTimeSec;
+	int menu, difference = 0, sum = 0, currentTimeSec;
 	Time t,ts,t1,t2;
 
 	currentTimeSec = time(&currentTime);
@@ -35,7 +35,11 @@ int main()
 
 
 menu_start:
-	cout << "\n\nPress '1' to reset current time " << endl << "Press '2' to subtract time from current time" <<endl<< "Press '3' to calculate the difference between two time moments wihin one day" << endl<<"Press '0' to exit"<<endl << endl;
+	cout << "\n\nPress '1' to reset current time " << endl 
+		<< "Press '2' to subtract time from current time" << endl 
+		<< "Press '3' to calculate the difference between two time moments wihin one day" << endl
+		<< "Press '4' to add time to current time" << endl
+		<<"Press '0' to exit"<<endl << endl;
 	cin >> menu;
 
 	switch (menu)
@@ -105,11 +109,33 @@ menu_start:
 			goto menu_start;
 			break;
 	}
+		case 4:
+		{
+			int subTimeSec = 0;
+			cout << "Please, enter number of second to add: " << endl;
+			cin >> subTimeSec;
 
-	case 0:
-	{
-		break;
-	}
+			while (subTimeSec < 0)
+			{
+				cout << "Number of seconds is worng! Please, enter another number: " << endl;
+				cin >> subTimeSec;
+			}
+
+			ts = Time::ConvertSecToTime(subTimeSec);
+			
+				sum = t + ts;
+				ts = Time::ConvertSecToTime(sum);
+				t = ts;
+
+			cout << "Resulting time: ";
+			cout << ts.GetHour() << " hour(s) " << ts.GetMin() << " minute(s) " << ts.GetSec() << " seconds(s) ";
+			goto menu_start;
+			break;
+		}
+		case 0:
+		{
+			break;
+		}
 	default:
 		cout << "Wrong action!" << endl;
 		goto menu_start;
